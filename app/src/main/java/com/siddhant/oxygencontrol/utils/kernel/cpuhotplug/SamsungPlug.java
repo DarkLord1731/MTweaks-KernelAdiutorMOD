@@ -13,7 +13,7 @@ import com.siddhant.oxygencontrol.utils.root.Control;
 public class SamsungPlug {
 
     private static final String HOTPLUG_SAMSUNG = "/sys/power/cpuhotplug";
-    private static final String HOTPLUG_SAMSUNG_ENABLE = HOTPLUG_SAMSUNG + "/enabled";
+    private static final String HOTPLUG_SAMSUNG_ENABLE = HOTPLUG_SAMSUNG + "/enable";
     private static final String HOTPLUG_SAMSUNG_MAX_ONLINE_CPU = HOTPLUG_SAMSUNG + "/max_online_cpu";
     private static final String HOTPLUG_SAMSUNG_MIN_ONLINE_CPU = HOTPLUG_SAMSUNG + "/min_online_cpu";
 
