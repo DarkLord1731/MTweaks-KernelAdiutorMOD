@@ -63,6 +63,13 @@ public class GPUFreqTmu {
     private static final String THROTTLING4_S9 = "/sys/devices/platform/17500000.mali/throttling4";
     private static final String TRIPPING_S9 = "/sys/devices/platform/17500000.mali/tripping";
 
+    private static final String TMU_EXYNOS7870 = "/sys/devices/platform/17500000.mali/tmu";
+    private static final String THROTTLING1_EXYNOS7870 = "/sys/devices/platform/17500000.mali/throttling1";
+    private static final String THROTTLING2_EXYNOS7870 = "/sys/devices/platform/17500000.mali/throttling2";
+    private static final String THROTTLING3_EXYNOS7870 = "/sys/devices/platform/17500000.mali/throttling3";
+    private static final String THROTTLING4_EXYNOS7870 = "/sys/devices/platform/17500000.mali/throttling4";
+    private static final String TRIPPING_EXYNOS7870 = "/sys/devices/platform/17500000.mali/tripping";
+
     private final List<String> mTmu = new ArrayList<>();
     private final List<String> mThrottling1 = new ArrayList<>();
     private final List<String> mThrottling2 = new ArrayList<>();
@@ -75,26 +82,32 @@ public class GPUFreqTmu {
         mTmu.add(TMU_S7);
         mTmu.add(TMU_S8);
         mTmu.add(TMU_S9);
+        mTmu.add(TMU_EXYNOS7870);
 
         mThrottling1.add(THROTTLING1_S7);
         mThrottling1.add(THROTTLING1_S8);
         mThrottling1.add(THROTTLING1_S9);
+        mThrottling1.add(THROTTLING1_EXYNOS7870);
 
         mThrottling2.add(THROTTLING2_S7);
         mThrottling2.add(THROTTLING2_S8);
         mThrottling2.add(THROTTLING2_S9);
+        mThrottling2.add(THROTTLING2_EXYNOS7870);
 
         mThrottling3.add(THROTTLING3_S7);
         mThrottling3.add(THROTTLING3_S8);
         mThrottling3.add(THROTTLING3_S9);
+        mThrottling3.add(THROTTLING3_EXYNOS7870);
 
         mThrottling4.add(THROTTLING4_S7);
         mThrottling4.add(THROTTLING4_S8);
         mThrottling4.add(THROTTLING4_S9);
+        mThrottling4.add(THROTTLING4_EXYNOS7870);
 
         mTripping.add(TRIPPING_S7);
         mTripping.add(TRIPPING_S8);
         mTripping.add(TRIPPING_S9);
+        mTripping.add(TRIPPING_EXYNOS7870);
     }
 
     private String TMU;
