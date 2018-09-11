@@ -12,14 +12,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.2"
     defaultConfig {
-        applicationId 'com.moro.mtweaks'
+        applicationId 'com.siddhant.oxygencontrol'
         minSdkVersion 19
-        targetSdkVersion 27
-        versionCode 292
-        versionName "2.9.2"
+        targetSdkVersion 28
+        versionCode 200
+        versionName "2.0.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -40,7 +40,7 @@ android {
     }
     android.applicationVariants.all { final variant ->
         variant.outputs.all {
-            outputFileName = "MTweaks_v${variant.versionName}.apk"
+            outputFileName = "OxygenControl_v${variant.versionName}.apk"
         }
     }
 }

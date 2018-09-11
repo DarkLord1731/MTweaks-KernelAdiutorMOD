@@ -12,7 +12,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
-import com.moro.mtweaks.R;
+import com.siddhant.oxygencontrol.R;
 
 import java.net.URL;
 

@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">MTweaks</string>
+    <string name="app_name">Oxygen Control</string>
 
     <string name="checking_info">Checking info…</string>
     <string name="checking_root">Checking root access</string>
@@ -9,8 +9,8 @@
     <string name="no_busybox">No busybox</string>
     <string name="open">Open %s</string>
     <string name="disable">Disable</string>
-    <string name="changelog">MTweaks v%s</string>
-    <string name="changelog_message">\n* Fixed Boeffla Wakelock, now works much faster, thanks @Grouxho\n\n\n</string>
+    <string name="changelog">OxygenControl v%s</string>
+    <string name="changelog_message">\n* The all new Oxygen Control is here!\n\n\n</string>
     <string name="close">Close</string>
 
     <!-- Security -->
@@ -1075,7 +1075,7 @@
     <string name="app_update_notif_title">Update Notification</string>
     <string name="app_update_notif_summary">Show update notifications when new version ia available</string>
     <string name="check_update_title">Check update</string>
-    <string name="check_update_summary">Check if there is a new update of MTweaks</string>
+    <string name="check_update_summary">Check if there is a new update of OxygenControl</string>
     <string name="reset_data_summary">Clear data and restore the application settings</string>
     <string name="reset_data_dialog1">The data and the configuration of the entire application will be erased.\n\nAre you sure?\n</string>
     <string name="reset_data_dialog2_title">Reboot</string>
@@ -1133,13 +1133,12 @@
     <string name="sections">Sections</string>
 
     <!-- About -->
-    <!--<string name="about_me">Hi, I\'m Willi Ye aka Grarak, a 19 year old student living in Vienna. I\'ve been developing on Android for quite a long time. Beside Kernel Adiutor I\'m also maintaining LineageOS for few devices and working on ParanoidAndroid. So please understand if I don\'t find the time to update this application.</string>-->
-    <string name="about_me">Hi, I\'m MoroGoku, developer of MoRoKernel of Samsung S7. This app is a mod of \"Kernel Adiutor\" of Willi Ye, aka Grarak. I make this mod for compatibilize Kernel Adiutor with Galaxy S7 smartphone, and add some new options. Thanks Willi for this great app.</string>
+    <string name="about_me">Hi, I\'m Siddhant Naik, developer of Oxygen Kernel. This app is a mod of \"Kernel Adiutor\" of Willi Ye, aka Grarak. I make this mod to be perfectly compatible with my Oxygen Kernel and add some new options.</string>
     <string name="libraries_used">Libraries used</string>
 
     <!-- Donation -->
     <string name="donation_title">Donation</string>
-    <string name="donation_summary">Hi, MTweaks v2 is an application based on \"Kernel Adiutor\" by Willi Ye, aka Grarak.\n\nIt has several new modifications and adjustments, especially for the latest Samsung Galaxy.\n\nI do this because I have fun and I like to share my work, that\'s why it\'s free and does not carry advertising.\n\nAlthough if you liked the work I have done and you want to donate something and invite me to a beer, as they say, you can do it in the following Paypal link.</string>
+    <string name="donation_summary">Hi, OxygenControl v2 is an application based on \"Kernel Adiutor\" by Willi Ye, aka Grarak.\n\nIt has several new modifications and adjustments, especially for the Oxygen Kernel.\n\nI do this because I have fun and I like to share my work, that\'s why it\'s free and does not carry advertising.\n\nAlthough if you liked the work I have done and you want to donate something and invite me to a beer, as they say, you can do it in the following Paypal link.</string>
 
     <!-- Contributors -->
     <string name="commits">%d commits</string>
@@ -1174,5 +1173,5 @@
     <string name="appupdater_btn_dismiss">Dismiss</string>
     <string name="appupdater_download_filed">Download FAILED!</string>
     <string name="appupdater_downloading_file">Downloading</string>
-    <string name="appupdater_json">https://raw.githubusercontent.com/morogoku/MTweaks-KernelAdiutorMOD/master/app/update.json</string>
+    <string name="appupdater_json">https://raw.githubusercontent.com/DarkLord1731/Oxygen-Control/master/app/update.json</string>
 </resources>
