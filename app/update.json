@@ -1,9 +1,9 @@
 {
-  "latestVersion": "2.9.2",
-  "latestVersionCode": "292",
-  "url": "https://github.com/morogoku/MTweaks-KernelAdiutorMOD/releases/download/v2.9.2/MTweaks_v2.9.2.apk",
+  "latestVersion": "2.0.0",
+  "latestVersionCode": "200",
+  "url": "https://github.com/DarkLord1731/Oxygen-Control/releases/download/v2.0.0/OxygenControl_v2.0.0.apk",
   "releaseNotes": [
     "Changelog:",
-    "- Fixed Boeffla Wakelock, now works much faster, thanks @Grouxho"
+    "- Fresh new release V2.0"
   ]
 }
