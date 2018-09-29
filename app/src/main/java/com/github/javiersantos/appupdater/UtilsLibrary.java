@@ -1,18 +1,12 @@
 package com.github.javiersantos.appupdater;
 
-import android.app.DownloadManager;
-import android.content.BroadcastReceiver;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -21,11 +15,8 @@ import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.github.javiersantos.appupdater.objects.GitHub;
 import com.github.javiersantos.appupdater.objects.Update;
 import com.github.javiersantos.appupdater.objects.Version;
-import com.siddhant.oxygencontrol.R;
-import com.siddhant.oxygencontrol.utils.Utils;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,16 +29,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-import static android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED;
-import static android.content.Context.DOWNLOAD_SERVICE;
-import static android.widget.Toast.LENGTH_LONG;
-
+import com.siddhant.oxygencontrol.utils.root.RootUtils;
 
 class UtilsLibrary {
-
-    private static DownloadManager downloadManager;
-    private static long id;
-
 
     static String getAppName(Context context) {
         return context.getString(context.getApplicationInfo().labelRes);
@@ -58,13 +42,10 @@ class UtilsLibrary {
     }
 
     static String getAppInstalledVersion(Context context) {
-        String version = "0.0.0.0";
-
-        try {
-            version = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
+        String version = RootUtils.runCommand("getprop ro.oxygen.version");
+        
+        if (version.length() < 2)
+            version = "0.0.0.0";
 
         return version;
     }
@@ -83,15 +64,15 @@ class UtilsLibrary {
 
     static Boolean isUpdateAvailable(Update installedVersion, Update latestVersion) {
         Boolean res = false;
-
-        if (latestVersion.getLatestVersionCode() != null && latestVersion.getLatestVersionCode() > 0) {
-            return latestVersion.getLatestVersionCode() > installedVersion.getLatestVersionCode();
-        } else {
-            if (!TextUtils.equals(installedVersion.getLatestVersion(), "0.0.0.0") && !TextUtils.equals(latestVersion.getLatestVersion(), "0.0.0.0")) {
-                Version installed = new Version(installedVersion.getLatestVersion());
-                Version latest = new Version(latestVersion.getLatestVersion());
-                res = installed.compareTo(latest) < 0;
-            }
+        String version = RootUtils.runCommand("getprop ro.oxygen.version");
+        
+        if (version.length() < 2)
+            version = "0.0.0.0";
+            
+        if (!TextUtils.equals(version, "0.0.0.0") && !TextUtils.equals(latestVersion.getLatestVersion(), "0.0.0.0")) {
+            Version installed = new Version(version);
+            Version latest = new Version(latestVersion.getLatestVersion());
+            res = installed.compareTo(latest) < 0;
         }
 
         return res;
@@ -300,12 +281,18 @@ class UtilsLibrary {
     }
 
     static void goToUpdate(Context context, UpdateFrom updateFrom, URL url) {
+        Intent intent = intentToUpdate(context, updateFrom, url);
 
-        IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
-        context.registerReceiver(downloadReceiver, filter);
-
-        descargar(context, url);
-
+        if (updateFrom.equals(UpdateFrom.GOOGLE_PLAY)) {
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url.toString()));
+                context.startActivity(intent);
+            }
+        } else {
+            context.startActivity(intent);
+        }
     }
 
     static Boolean isAbleToShow(Integer successfulChecks, Integer showEvery) {
@@ -325,66 +312,4 @@ class UtilsLibrary {
         return res;
     }
 
-    private static void descargar(Context context, URL url)
-    {
-        downloadManager = (DownloadManager)context.getSystemService(DOWNLOAD_SERVICE);
-        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url.toString()));
-
-        String APK = new File(url.getPath()).getName();
-
-        request.setTitle(APK);
-        request.setNotificationVisibility(VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-
-        // Guardar archivo
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
-        {
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,APK);
-        }
-
-        // Iniciamos la descarga
-        Utils.toast(context.getString(R.string.appupdater_downloading_file) + " " + APK + " ...", context, LENGTH_LONG);
-        id = downloadManager.enqueue(request);
-
-    }
-
-    private static void OpenNewVersion(Context context, File file) {
-
-        Intent intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
-        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        Uri uriFile;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            uriFile = FileProvider.getUriForFile(context, "com.siddhant.oxygencontrol.provider", file);
-        } else {
-            uriFile = Uri.fromFile(file);
-        }
-        intent.setDataAndType(uriFile,"application/vnd.android.package-archive");
-        context.startActivity(Intent.createChooser(intent, "Open_Apk"));
-
-    }
-
-    private static BroadcastReceiver downloadReceiver = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            DownloadManager.Query query = new DownloadManager.Query();
-            query.setFilterById(id, 0);
-            Cursor cursor = downloadManager.query(query);
-
-            if(cursor.moveToFirst()) {
-                int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                int reason = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_REASON));
-
-                if(status == DownloadManager.STATUS_SUCCESSFUL) {
-
-                    // Si la descarga es correcta abrimos el archivo para instalarlo
-                    File file = new File(Uri.parse(cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI))).getPath());
-                    OpenNewVersion(context, file);
-                }
-                else if(status == DownloadManager.STATUS_FAILED) {
-                    Utils.toast(context.getString(R.string.appupdater_download_filed) + reason, context, LENGTH_LONG);
-                }
-            }
-        }
-    };
 }
