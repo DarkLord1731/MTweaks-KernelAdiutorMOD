@@ -24,7 +24,7 @@ public class UpdateClickListener implements DialogInterface.OnClickListener {
     private final Context context;
     private final UpdateFrom updateFrom;
     private final URL apk;
-    private final String DEVICE = RootUtils.runCommand("getprop ro.build.product");
+    private final String DEVICE = RootUtils.runCommand("getprop ro.oxygen.device");
     private final String url = "https://sourceforge.net/projects/oxygen-kernel/files/" + DEVICE;
     
     public UpdateClickListener(final Context context, final UpdateFrom updateFrom, final URL apk) {
