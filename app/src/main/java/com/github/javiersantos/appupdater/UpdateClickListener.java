@@ -1,9 +1,17 @@
 package com.github.javiersantos.appupdater;
 
+import android.app.Activity;
+
+import android.net.Uri;
+
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
+
+import com.siddhant.oxygencontrol.utils.root.RootUtils;
 
 import java.net.URL;
 
@@ -16,7 +24,9 @@ public class UpdateClickListener implements DialogInterface.OnClickListener {
     private final Context context;
     private final UpdateFrom updateFrom;
     private final URL apk;
-
+    private final String DEVICE = RootUtils.runCommand("getprop ro.build.product");
+    private final String url = "https://sourceforge.net/projects/oxygen-kernel/files/" + DEVICE;
+    
     public UpdateClickListener(final Context context, final UpdateFrom updateFrom, final URL apk) {
         this.context = context;
         this.updateFrom = updateFrom;
@@ -25,6 +35,11 @@ public class UpdateClickListener implements DialogInterface.OnClickListener {
 
     @Override
     public void onClick(final DialogInterface dialog, final int which) {
-        UtilsLibrary.goToUpdate(context, updateFrom, apk);
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        }
     }
 }
