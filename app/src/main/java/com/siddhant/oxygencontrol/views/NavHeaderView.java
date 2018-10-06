@@ -82,7 +82,6 @@ public class NavHeaderView extends LinearLayout {
         };
 
         LayoutInflater.from(context).inflate(R.layout.nav_header_view, this);
-        mImage = findViewById(R.id.nav_header_pic);
 
         boolean noPic;
         try {
@@ -100,23 +99,6 @@ public class NavHeaderView extends LinearLayout {
         if (noPic) {
             AppSettings.resetPreviewPicture(getContext());
         }
-
-        findViewById(R.id.nav_header_fab).setOnClickListener(v
-                -> new Dialog(context).setItems(v.getResources()
-                        .getStringArray(R.array.main_header_picture_items),
-                (dialog, which) -> {
-                    switch (which) {
-                        case 0:
-                            v.getContext().startActivity(new Intent(v.getContext(),
-                                    MainHeaderActivity.class));
-                            break;
-                        case 1:
-                            AppSettings.resetPreviewPicture(getContext());
-                            mImage.setImageDrawable(null);
-                            animateBg();
-                            break;
-                    }
-                }).show());
     }
 
     public static class MainHeaderActivity extends Activity {
