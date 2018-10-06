@@ -1,5 +1,5 @@
 <resources>
-    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="nav_header_height">10dp</dimen>
 
     <dimen name="nav_header_fab_margin_right">8dp</dimen>
     <dimen name="nav_header_fab_margin_left">0dp</dimen>
