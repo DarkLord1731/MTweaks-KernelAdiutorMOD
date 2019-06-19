@@ -6,8 +6,8 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.moro.mtweaks.R;
-import com.moro.mtweaks.utils.kernel.sound.MoroSound;
+import com.siddhant.oxygencontrol.R;
+import com.siddhant.oxygencontrol.utils.kernel.sound.MoroSound;
 
 import androidx.appcompat.widget.AppCompatTextView;
 

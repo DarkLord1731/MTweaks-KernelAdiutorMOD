@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.moro.mtweaks">
+    package="com.siddhant.oxygencontrol">
 
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -113,7 +113,7 @@
         <!-- CM SDK -->
         <receiver android:name=".services.profile.Tile">
             <intent-filter>
-                <action android:name="com.moro.mtweaks.action.ACTION_TOGGLE_STATE" />
+                <action android:name="com.siddhant.oxygencontrol.action.ACTION_TOGGLE_STATE" />
             </intent-filter>
         </receiver>
 
@@ -158,7 +158,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.moro.mtweaks.provider"
+            android:authorities="com.siddhant.oxygencontrol.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

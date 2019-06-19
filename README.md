@@ -1,11 +1,11 @@
 # MTweaks
 
-It is a Mod of Grarak's [KernelAdiutor](https://github.com/Grarak/KernelAdiutor) for compatibilize to Samsung Exynos.
+It is a Mod of Grarak's [KernelAdiutor](https://github.com/Grarak/KernelAdiutor) for my Oxygen Kernel
 Thanks to Willi Ye for this great application.
 
 
 ## Donation
-[![PayPal](https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png)](https://paypal.me/morogoku)
+[![PayPal](https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png)](https://paypal.me/SiddhantNaik)
 
 ## Credits
 * Willi Ye, author of [KernelAdiutor](https://github.com/Grarak/KernelAdiutor)
@@ -47,17 +47,17 @@ _(Many sys interface paths has been taken from his [UKM-Project](https://github.
 
     Copyright (C) 2015-2016 Willi Ye <williye97@gmail.com>
 	Copyright (C) 2017 morogoku <morogoku@hotmail.com>
-	
+    Copyright (C) 2018 Siddhant Naik <siddhantnaik17@gmail.com>
     
-    MTweaks is free software: you can redistribute it and/or modify
+    OxygenControl is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
     
-    MTweaks is distributed in the hope that it will be useful,
+    OxygenControl is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
     
     You should have received a copy of the GNU General Public License
-    along with MTweaks.  If not, see <http://www.gnu.org/licenses/>.
+    along with OxygenControl.  If not, see <http://www.gnu.org/licenses/>.

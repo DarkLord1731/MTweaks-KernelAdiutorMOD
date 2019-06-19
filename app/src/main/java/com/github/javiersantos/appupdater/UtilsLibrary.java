@@ -21,8 +21,8 @@ import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.github.javiersantos.appupdater.objects.GitHub;
 import com.github.javiersantos.appupdater.objects.Update;
 import com.github.javiersantos.appupdater.objects.Version;
-import com.moro.mtweaks.R;
-import com.moro.mtweaks.utils.Utils;
+import com.siddhant.oxygencontrol.R;
+import com.siddhant.oxygencontrol.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -353,7 +353,7 @@ class UtilsLibrary {
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         Uri uriFile;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            uriFile = FileProvider.getUriForFile(context, "com.moro.mtweaks.provider", file);
+            uriFile = FileProvider.getUriForFile(context, "com.siddhant.oxygencontrol.provider", file);
         } else {
             uriFile = Uri.fromFile(file);
         }

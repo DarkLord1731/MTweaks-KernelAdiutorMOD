@@ -12,8 +12,8 @@ import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import android.util.SparseArray;
 
-import com.moro.mtweaks.utils.Utils;
-import com.moro.mtweaks.utils.kernel.cpu.CPUFreq;
+import com.siddhant.oxygencontrol.utils.Utils;
+import com.siddhant.oxygencontrol.utils.kernel.cpu.CPUFreq;
 
 import java.util.ArrayList;
 import java.util.Collections;

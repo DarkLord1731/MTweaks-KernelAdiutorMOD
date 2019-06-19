@@ -1007,7 +1007,7 @@
   <string name="reset_data_dialog2_title">Reiniciar</string>
   <string name="reset_data_dialog2_message">Para evitar fallos en la configuración se recomienda reiniciar el sistema.\n\nQuieres reiniciar?\n</string>
   <string name="check_update_title">Comprobar actualización</string>
-  <string name="check_update_summary">Comprueba si existe nueva actualizacion de MTweaks</string>
+  <string name="check_update_summary">Comprueba si existe nueva actualizacion de OxygenControl</string>
   <string name="fahrenheit_title">Fahrenheit</string>
   <string name="fahrenheit_summary">Usar fahrenheit para medir la temperatura.</string>
   <string name="force_english">Forzar idioma inglés</string>
@@ -1064,7 +1064,7 @@
   <string name="app_version">Versión App</string>
   <!-- Donation -->
   <string name="donation_title">Donación</string>
-  <string name="donation_summary">Hola, MTweaks v2 es una aplicación que tiene como base \"Kernel Adiutor\" de Willi Ye, aka Grarak.\n\nLleva varias modificaciones y ajustes nuevos, especialente dirigidos para los ultimos Samsung Galaxy.\n\nEsto lo hago porque me divierte y me gusta compartir mi trabajo, por eso es gratis y no lleva publicidad.\n\nAunque si te ha gustado el trabajo que he realizado y quieres donar algo e invitarme a una cerveza, como se suele decir, puedes hacerlo en el siguiente enlace de Paypal.</string>
+  <string name="donation_summary">Hola, OxygenControl v2 es una aplicación que tiene como base \"Kernel Adiutor\" de Willi Ye, aka Grarak.\n\nLleva varias modificaciones y ajustes nuevos, especialente dirigidos para los ultimos Samsung Galaxy.\n\nEsto lo hago porque me divierte y me gusta compartir mi trabajo, por eso es gratis y no lleva publicidad.\n\nAunque si te ha gustado el trabajo que he realizado y quieres donar algo e invitarme a una cerveza, como se suele decir, puedes hacerlo en el siguiente enlace de Paypal.</string>
   <!-- Contributors -->
   <string name="commits">%d cambios</string>
   <string name="no_internet">Por favor, compruebe su conexión a internet!</string>

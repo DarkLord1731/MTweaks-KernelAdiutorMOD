@@ -4,11 +4,11 @@ android {
     compileSdkVersion 29
     buildToolsVersion '29.0.0'
     defaultConfig {
-        applicationId 'com.moro.mtweaks'
+        applicationId 'com.siddhant.oxygencontrol'
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 2140
-        versionName "2.14.0"
+        versionCode 300
+        versionName "3.0.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,7 +29,7 @@ android {
     }
     android.applicationVariants.all { final variant ->
         variant.outputs.all {
-            outputFileName = "MTweaks_v${variant.versionName}.apk"
+            outputFileName = "OxygenControl_v${variant.versionName}.apk"
         }
     }
 }
